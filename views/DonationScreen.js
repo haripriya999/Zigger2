@@ -3,6 +3,7 @@ import {Alert, Platform, StyleSheet, Text, View, Image, Button, Linking } from '
 import Bananas from './utils/Bananas';
 import firebase from 'firebase';
 import { showLocation } from 'react-native-map-link'
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class DonationScreen extends React.Component {
 
@@ -20,6 +21,16 @@ export default class DonationScreen extends React.Component {
         })
         .catch(error => this.setState({errorMessage: error.message}));
     }
+
+    componentDidMount = () => {
+        navigator.geolocation.getCurrentPosition(
+         position => {
+              this.setState({currentLat : parseFloat(JSON.stringify(position.coords.latitude)) , currentLong: parseFloat(JSON.stringify(position.coords.longitude))});
+         },
+         error => alert(JSON.stringify(error)),
+         { enableHighAccuracy: true, timeout: 20000 }
+        );
+      };
 
     openMap() {
         showLocation({
@@ -58,25 +69,40 @@ export default class DonationScreen extends React.Component {
     render() {
     const {navigate} = this.props.navigation;
     const cuser = JSON.parse(JSON.stringify(this.props.navigation.getParam('user')));
+    const info = this.state.donation;
     if(this.state.hasDonation) {
         return (
-            <View style={styles.container}>
+            <LinearGradient
+            colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+            start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
+            style={styles.container}>
                 <Text>{JSON.stringify(this.state.donation)}</Text>
-        
-                <View style={styles.btnContainer}>
-                    <Button
-                    title="Directions to donor"
-                    onPress={this.openMap.bind(this)}
-                    />
-                </View>
-                <View style={styles.btnContainer}>
-                    <Button
-                    title="Directions to distributor"
-                    onPress={this.openMap2.bind(this)}
-                    />
+                <View style={styles.card}>  
+                    <Text style={styles.show}>  
+                       Distributor PhoneNo: {info.distPhoneno}
+                    </Text>
+                    <Text style={styles.show}>
+                       Donor PhoneNo: {info.donorPhoneno}
+                    </Text>
+                    <Text style={styles.show}>
+                        Food Units: {info.foodUnits}
+                    </Text>
+                    <View style={styles.btnContainer}>
+                        <Button
+                        title="Directions to donor"
+                        onPress={this.openMap.bind(this)}
+                        />
+                    </View>
+                    <View style={styles.btnContainer}>
+                        <Button
+                        title="Directions to distributor"
+                        onPress={this.openMap2.bind(this)}
+                        />
+                    </View>
+                    
                 </View>
 
-            </View>
+            </LinearGradient>
         );    
     } else {
         return (
@@ -104,5 +130,12 @@ const styles = StyleSheet.create({
   btnContainer: {
     margin: 20, 
     width: 200,
+  },
+  card:{
+   padding:30,
+   backgroundColor: '#DDDDDD',
+  },
+  show:{
+
   },
 });
