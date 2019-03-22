@@ -2,6 +2,7 @@ import React from 'react';
 import { Alert, Platform, StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import firebase from 'firebase';
 import ErrorMessage from '../utils/ErrorMessage';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class LoginScreen extends React.Component {
 
@@ -32,12 +33,16 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
 
-      <View style={styles.container}>
+      <LinearGradient
+      colors={['#24c6dc', '#514a9d']}
+      start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
+      style={styles.container}>
 
         <View style={styles.inputContainer}>
           <TextInput
             placeholder='Email'
             onChangeText={(emaill) => this.setState({email: emaill})}
+            style={{color: 'white'}}
           />
         </View>
 
@@ -46,6 +51,7 @@ export default class LoginScreen extends React.Component {
             secureTextEntry={true}
             placeholder='Password'
             onChangeText={(passwordd) => this.setState({password: passwordd})}
+            style={{color: 'white'}}
           />
         </View>
 
@@ -64,7 +70,7 @@ export default class LoginScreen extends React.Component {
           <Text style={{padding: 10, fontSize: 30, color: '#841584'}} onPress={() => this.props.navigation.navigate('Signup')}>Sign Up</Text>
         </Text>
 
-      </View>
+      </LinearGradient>
 
     );
   }
@@ -79,16 +85,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F5FCFF',
   },
-  inputContainer: {
-    margin: 4, 
-    width: 300,
-    borderBottomWidth: 1,
-    borderColor: 'black',
+  field: {
+    fontSize:20, 
+    color: '#841584',
   },
   btnContainer: {
     margin: 2,
     padding: 20, 
     width: 200,
+    color: 'white',
+  },
+  card:{
+   padding:30,
+   width: '80%',
+   marginTop:100,
+   marginBottom:100,
+   backgroundColor: '#DDDDDD',
+   borderRadius:20,
+   borderWidth: 3,
+   borderColor: '#222222',
+   flex: 1,
+   alignItems: 'center',
+   flexDirection: 'column',
+   justifyContent: 'center',
+  },
+  show:{
+   fontSize:20,
+   color: '#222222',
+   
+  },
+  inputContainer: {
+    margin: 4, 
+    width: 300,
+    borderBottomWidth: 1,
+    borderColor: 'white',
+    color: 'white',
   },
 });
-

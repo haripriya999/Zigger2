@@ -76,7 +76,6 @@ export default class DonationScreen extends React.Component {
             colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
             style={styles.container}>
-                <Text>{JSON.stringify(this.state.donation)}</Text>
                 <View style={styles.card}>  
                     <Text style={styles.show}>  
                        Distributor PhoneNo: {info.distPhoneno}
@@ -133,9 +132,20 @@ const styles = StyleSheet.create({
   },
   card:{
    padding:30,
+   marginTop:100,
+   marginBottom:100,
    backgroundColor: '#DDDDDD',
+   borderRadius:20,
+   borderWidth: 3,
+   borderColor: '#222222',
+   flex: 1,
+   alignItems: 'center',
+   flexDirection: 'column',
+   justifyContent: 'center',
   },
   show:{
-
+   fontSize:20,
+   color: '#222222',
+   
   },
 });
