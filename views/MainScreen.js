@@ -4,6 +4,13 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export default class HomeScreen extends React.Component {
 
+  static navigationOptions = () => ({
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: 'black'
+    },
+  });
+  
   render() {
     const {navigate} = this.props.navigation;
     const cuser = JSON.parse(JSON.stringify(this.props.navigation.getParam('user')));

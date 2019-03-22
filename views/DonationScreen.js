@@ -13,6 +13,13 @@ export default class DonationScreen extends React.Component {
         this.fetchData();
     }
 
+    static navigationOptions = () => ({
+        headerTintColor: 'white',
+        headerStyle: {
+        backgroundColor: 'black'
+        },
+    });
+  
     fetchData() {
         firebase.database().ref('donations').limitToFirst(1).once('value')
         .then(donation => {

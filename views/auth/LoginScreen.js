@@ -12,6 +12,13 @@ export default class LoginScreen extends React.Component {
     this.state = {email: "", password: "", errorMessage: "", disabled: false};
   }
 
+  static navigationOptions = () => ({
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: 'black'
+    },
+  });
+  
   handleSignIn = () => {
     this.setState({disabled: true});
     firebase

@@ -18,6 +18,14 @@ export default class SignupScreen extends React.Component {
     */
 }
 
+
+  static navigationOptions = () => ({
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: 'black'
+    },
+  });
+
   handleSignUp = () => {
     if(this.state.username === '' || this.state.phoneno === '' || this.state.password != this.state.retypePassword) {
       this.setState({errorMessage: "Please enter all the details correctly!"});
