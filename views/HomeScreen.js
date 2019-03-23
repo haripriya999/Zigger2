@@ -8,6 +8,7 @@ export default class HomeScreen extends React.Component {
     return (
       <ImageBackground source={require('../images/react-native-css-gradientsad.png')} style={styles.container}>
         <Text style={styles.header1}>Welcome to Zigger!</Text>
+        <Text style={styles.header1}>Transporter App</Text>
 
         <View style={styles.btnContainer}>
           <Button
