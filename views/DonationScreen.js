@@ -112,9 +112,12 @@ export default class DonationScreen extends React.Component {
         );    
     } else {
         return (
-        <View style={styles.container}>
-            <Text>Searching for donation...</Text>
-        </View>
+            <LinearGradient
+            colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+            start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
+            style={styles.container}>
+                <Text style={{color: 'white', fontSize: 24}}>Searching for donation...</Text>
+            </LinearGradient>
         );
     }
   }
