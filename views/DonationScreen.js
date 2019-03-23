@@ -80,7 +80,7 @@ export default class DonationScreen extends React.Component {
     if(this.state.hasDonation) {
         return (
             <LinearGradient
-            colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+            colors={['#000428', '#004e92']}
             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
             style={styles.container}>
                 <View style={styles.card}>  
@@ -113,7 +113,7 @@ export default class DonationScreen extends React.Component {
     } else {
         return (
             <LinearGradient
-            colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+            colors={['#000428', '#004e92']}
             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
             style={styles.container}>
                 <Text style={{color: 'white', fontSize: 24}}>Searching for donation...</Text>

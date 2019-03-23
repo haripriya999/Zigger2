@@ -16,7 +16,7 @@ export default class HomeScreen extends React.Component {
     const cuser = JSON.parse(JSON.stringify(this.props.navigation.getParam('user')));
     return (
       <LinearGradient
-      colors={['#00FFFF', '#17C8FF', '#329BFF', '#4C64FF', '#6536FF', '#8000FF']}
+      colors={['#000428', '#004e92']}
       start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 0.0}}
       style={styles.container}>
 
