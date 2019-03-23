@@ -29,6 +29,7 @@ export default class HomeScreen extends React.Component {
           <View style={styles.btnContainer}>
             <Button
               title="Search for nearby donations"
+              color='#111EC6'
               onPress={() => navigate('Donation', {user: cuser})}
             />
           </View>

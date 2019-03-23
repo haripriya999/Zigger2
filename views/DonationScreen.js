@@ -96,12 +96,14 @@ export default class DonationScreen extends React.Component {
                     <View style={styles.btnContainer}>
                         <Button
                         title="Directions to donor"
+                        color='#111EC6'
                         onPress={this.openMap.bind(this)}
                         />
                     </View>
                     <View style={styles.btnContainer}>
                         <Button
                         title="Directions to distributor"
+                        color='#111EC6'
                         onPress={this.openMap2.bind(this)}
                         />
                     </View>
