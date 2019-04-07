@@ -9,7 +9,12 @@ import {name as appName} from './app.json';
 console.disableYellowBox = true;
 
 var config = {
-    XXX
+    apiKey: "xxx",
+    authDomain: "xxx",
+    databaseURL: "xxx",
+    projectId: "xxx",
+    storageBucket: "xxx",
+    messagingSenderId: "xxx"
 };
 
 firebase.initializeApp(config);
